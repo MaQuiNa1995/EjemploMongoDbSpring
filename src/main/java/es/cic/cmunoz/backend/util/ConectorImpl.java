@@ -731,7 +731,7 @@ public class ConectorImpl implements Conector {
         LOG.info("-------------------- Empiezo a hacer las selects --------------------");
         LOG.info("***********Select *****************");
 
-        long[] arregloIds = utilidad.generarArregloIds();
+        int[] arregloIds = utilidad.generarArregloIds();
         for (int i = 0; i < arregloIds.length; i++) {
 
             try (MongoClient mongoClient = new MongoClient(URLBBDD, PUERTOBBDD)) {

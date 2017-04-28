@@ -121,8 +121,8 @@ public class Utilidades {
             StringBuilder fechaCompleta = new StringBuilder();
 
             fechaCompleta.append(ANNO);
-            fechaCompleta.append(generarUnDia());
             fechaCompleta.append(generarUnMes());
+            fechaCompleta.append(generarUnDia());
 
             mapaFechas[i] = fechaCompleta.toString();
         }
@@ -256,8 +256,8 @@ public class Utilidades {
         return cadenaConvertida;
     }
 
-    public long[] generarArregloIds() {
-        final long[] ARREGLO_IDS = {
+    public int[] generarArregloIds() {
+        final int[] ARREGLO_IDS = {
             1, 200000, 400000,
             600000, 800000,
             1000000, 234567890
@@ -280,7 +280,7 @@ public class Utilidades {
         return arregloRandoms;
     }
 
-    public long conseguirHora() {
+    public static long conseguirHora() {
         return Calendar.getInstance().getTimeInMillis();
     }
 

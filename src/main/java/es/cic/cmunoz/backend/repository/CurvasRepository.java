@@ -6,6 +6,7 @@
 package es.cic.cmunoz.backend.repository;
 
 import es.cic.cmunoz.backend.dominio.Curvas;
+import java.util.List;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -25,13 +26,14 @@ public interface CurvasRepository extends CrudRepository<Curvas, Long> {
 
     Curvas findByValores(String valor);
     
-    @Query("{cups: { $regex: ?0 } }")
+    @Query(value="{'cups':  ?0  }")
     Curvas encontrarCups(String cups);
     
-    @Query("{fecha: { $regex: ?0 } }")
-    Curvas encontrarFecha(String fecha);
+    @Query(value="{'fecha': ?0  }")
+    List<Curvas> encontrarFechas(String fecha);
     
-    @Query("{'Id Curva': ?0 }")
+    @Query(value="{'Id Curva': ?0 }")
     Curvas encontrarIdCurva(long idCurva);
+    
 
 }

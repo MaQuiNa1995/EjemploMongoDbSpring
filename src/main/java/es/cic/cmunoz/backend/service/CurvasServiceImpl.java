@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import static com.mongodb.client.model.Filters.eq;
 
 
 @Service
