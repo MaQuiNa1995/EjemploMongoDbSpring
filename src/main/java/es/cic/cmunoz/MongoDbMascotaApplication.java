@@ -127,7 +127,6 @@ selecionarPorPatron();
         }
 
         long antes = Utilidades.conseguirHora();
-
         repository.save(listaCurvasGuardar);
 
         long despues = Utilidades.conseguirHora();
