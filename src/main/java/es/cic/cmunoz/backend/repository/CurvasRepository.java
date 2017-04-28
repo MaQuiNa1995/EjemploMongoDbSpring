@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+    //: { $regex: /^firstname/}
+    // @Query("{'Valores': { $regex: ?0$, $regex: ^?0} ,'Flag': { $regex: ^?1, $regex: ?1$}}")
+    // ,fields="{ 'firstname' : 1, 'lastname' : 1}"
+
 package es.cic.cmunoz.backend.repository;
 
 import es.cic.cmunoz.backend.dominio.Curvas;
@@ -35,5 +40,6 @@ public interface CurvasRepository extends CrudRepository<Curvas, Long> {
     @Query(value="{'Id Curva': ?0 }")
     Curvas encontrarIdCurva(long idCurva);
     
-
+    @Query("{'Valores': { $regex: ?0$, $regex: ^?0} ,'Flag': { $regex: ^?1, $regex: ?1$}}")
+    List<Curvas> encontrarCurvasPorPattern(String valorInicio,String valorFinal,String flagInicio,String flagFinal);
 }

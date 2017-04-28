@@ -32,10 +32,11 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        guardarMillon();
-        verCincoCups();
-        verCincoFechas();
-        verSeisIdCurvas();
+//        guardarMillon();
+//        verCincoCups();
+//        verCincoFechas();
+//        verSeisIdCurvas();
+selecionarPorPatron();
     }
 
     private void verCincoFechas() {
@@ -134,6 +135,14 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         System.out.println("Han pasado " + tiempoSacado / 1000 + " Segundos");
+    }
+
+    private void selecionarPorPatron() {
+        List<Curvas> a = repository.encontrarCurvasPorPattern("1678", "1678", "1", "0");
+        
+        for (Curvas object : a) {
+            System.out.println(object.toString());
+        }
     }
 
 }
