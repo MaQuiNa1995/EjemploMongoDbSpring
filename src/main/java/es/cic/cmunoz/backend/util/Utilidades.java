@@ -324,7 +324,7 @@ public class Utilidades {
      *
      * @return ahoraMismo - Tiempo de ahora mismo en milisegundos
      */
-    public long conseguirHora() {
+    public static long conseguirHora() {
 
         long ahoraMismo = Calendar.getInstance().getTimeInMillis();
 
