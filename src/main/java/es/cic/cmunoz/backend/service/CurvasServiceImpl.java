@@ -40,10 +40,6 @@ public class CurvasServiceImpl implements CurvasService {
 
             List<Curvas> arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
 
-            for (Curvas curvasSacadas : arregloFechasMismoDia) {
-                System.out.println(curvasSacadas.toString());
-            }
-
         }
 
         long despues = Utilidades.conseguirHora();
@@ -80,11 +76,11 @@ public class CurvasServiceImpl implements CurvasService {
 
         long antes = Utilidades.conseguirHora();
 
-        for (String cupsSacado : listaCups) {
-            System.out.println("----------------------------------------" + cupsSacado);
-            System.out.println(repository.encontrarCups(cupsSacado).toString());
-        }
-
+        // for (String cupsSacado : listaCups) {
+        listaCups.stream().forEach((cupsSacado) -> {
+            repository.encontrarCups(cupsSacado).toString();
+        });
+        
         long despues = Utilidades.conseguirHora();
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
