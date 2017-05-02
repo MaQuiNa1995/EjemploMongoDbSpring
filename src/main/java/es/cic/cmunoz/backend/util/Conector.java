@@ -26,9 +26,7 @@ public interface Conector {
      * @param valorNuevo String que contiene el valor nuevo
      * @return exito - Variable de control para indicar el exito de la operación
      * @deprecated No se recomienda el uso de esta funcion ya que usa elementos
-     * deprecados que podrían ser eliminados en un futuro No se recomienda el
-     * uso de esta funcion ya que usa elementos deprecados que podrían ser
-     * eliminados en un futuro
+     * deprecados que podrían ser eliminados en un futuro 
      */
     @Deprecated
     boolean anadirCampo(String nombreColeccion, String buscarClave, String buscarValor, String claveNueva, String valorNuevo);

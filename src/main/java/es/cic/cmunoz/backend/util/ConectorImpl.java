@@ -1,9 +1,5 @@
 package es.cic.cmunoz.backend.util;
 
-import es.cic.cmunoz.backend.util.Utilidades;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -14,8 +10,6 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
-import static com.mongodb.client.model.Filters.eq;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,9 +26,7 @@ import static com.mongodb.client.model.Filters.eq;
  * Clase ConectorImpl tiene métodos para conectarse y manipular una base de
  * datos hecha en mongoDb con el driver 3.4.2
  *
- * <p>
- * Fecha 18-abr-2017
- * <p>
+ * <p>Fecha 18-abr-2017</p>
  *
  * @version 1.0
  */

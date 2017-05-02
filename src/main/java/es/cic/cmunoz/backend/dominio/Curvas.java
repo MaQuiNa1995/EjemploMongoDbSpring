@@ -98,9 +98,8 @@ public class Curvas {
 
     @Override
     public String toString() {
-        return "Curvas{" + "_id=" + id + ", idCurva=" + idCurva + ", cups=" + cups + ", magnitud=" + magnitud + ", fecha=" + fecha + ", valores=" + valores + '}';
+        return "Curvas{" + "id=" + id + ", idCurva=" + idCurva + ", cups=" + cups + ", magnitud=" + magnitud + ", fecha=" + fecha + ", valores=" + valores + ", flag=" + flag + '}';
     }
- 
-    
-    
+
+
 }

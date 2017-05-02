@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package es.cic.cmunoz.backend.util;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import org.springframework.stereotype.Service;
 
@@ -23,20 +21,20 @@ public class Utilidades {
     public Utilidades() {
         super();
     }
-    
+
     /**
      *
-     * @param i
+     * @param numeroCups
      * @return
      */
-    public String generarCups(int i) {
+    public String generarCups(int numeroCups) {
 
         final String PRINCIPIOCUPS = "ES00277000000000";
         final String FINCUPS = "0F";
 
         StringBuilder sb = new StringBuilder(PRINCIPIOCUPS);
 
-        String cadenaConvertida = annadirCeros(String.valueOf(i));
+        String cadenaConvertida = annadirCeros(String.valueOf(numeroCups));
 
         sb.append(cadenaConvertida);
         sb.append(FINCUPS);
@@ -265,8 +263,6 @@ public class Utilidades {
 
         return ARREGLO_IDS;
     }
-    
-    
 
     public List<String> generarArreglosCups() {
         Random rand = new Random();
@@ -286,6 +282,18 @@ public class Utilidades {
 
     public long calcularTiempo(long antes, long despues) {
         return despues - antes;
+    }
+
+    public void registrarActividad(String cadenaMeter) {
+
+        String nombre = "log.txt";
+
+        try (FileWriter fichero = new FileWriter(nombre,true)){
+
+            fichero.write(cadenaMeter + "\r\n");
+
+        } catch (Exception ex) {
+        }
     }
 
 }

@@ -17,7 +17,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CurvasRepository extends CrudRepository<Curvas, Long> {
+public interface CurvasRepository extends CrudRepository<Curvas, Long>,CurvasRepositoryCustom {
 
     Curvas findById(String id);
 
@@ -40,10 +40,20 @@ public interface CurvasRepository extends CrudRepository<Curvas, Long> {
     @Query(value="{'Id Curva': ?0 }")
     Curvas encontrarIdCurva(long idCurva);
     
-            // ,'Flag': { $regex: ^?2, $regex: ?3$}}
-//    @Query("{'Valores': ^[0?](;[0?])*$")
-//    @Query("{'Valores': /^[0](;[01])*$/ ,'Flag': { $regex: ^?2, $regex: ?3$}}")
+//    @Query("{'Valores': { $regex: '?0$'},'Valores': {$regex: '^?1'} ,'Flag': { $regex: '^?2'} ,'Flag': {$regex: '?3$'}}")
+//    @Query("{'Valores': {  $regex: '?1$',$regex: '^?0'} ,'Flag': { $regex: '?3$',$regex: '^?2'}}")
+    @Query("{'Valores': {  $regex: '^?0'} ,'Flag': { $regex: '?1$'}}")
+    List<Curvas> encontrarCurvasPorPattern(String valorInicio,String flagFinal);
     
-    @Query("{'Valores': { $regex: '1'$} ,'Flag': { $regex: ^?0|?1$}}")
-    List<Curvas> encontrarCurvasPorPattern(String valorInicio,String valorFinal,String flagInicio,String flagFinal);
+    /*@Query(value="{'Cups': { $regex: '^?0'} }")
+    List<Curvas> empiecenPorES(String pais);
+    */
 }
+
+
+
+
+//    @Query("{'Valores': { $regex:  '^?0'}"
+//         + ",'Valores': { $regex: '?1$'}"
+//         + ",'Flag': { $regex:    '^?2'}"
+//         + ",'Flag': { $regex:     '?3$'}}")
