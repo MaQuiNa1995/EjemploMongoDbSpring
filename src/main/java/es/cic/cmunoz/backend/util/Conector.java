@@ -7,9 +7,6 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.stereotype.Repository;
 
-/**
- * @version 1.0
- */
 @Repository
 public interface Conector {
 
@@ -239,6 +236,7 @@ public interface Conector {
      */
     List<String> verNombresBasesDatos();
 
+    
     void guardadoUnMillon();
 
 }

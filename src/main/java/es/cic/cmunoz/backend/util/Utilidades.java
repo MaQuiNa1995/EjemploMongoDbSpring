@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.cic.cmunoz.backend.util;
 
 import java.io.FileWriter;
@@ -18,6 +13,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class Utilidades {
 
+    /**
+     * Constructor genérico de la clase
+     */
     public Utilidades() {
         super();
     }
@@ -326,7 +324,7 @@ public class Utilidades {
      *
      * @return ahoraMismo - Tiempo de ahora mismo en milisegundos
      */
-    public static long conseguirHora() {
+    public long conseguirHora() {
 
         long ahoraMismo = Calendar.getInstance().getTimeInMillis();
 

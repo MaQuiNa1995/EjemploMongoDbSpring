@@ -26,7 +26,8 @@ import static com.mongodb.client.model.Filters.eq;
  * Clase ConectorImpl tiene métodos para conectarse y manipular una base de
  * datos hecha en mongoDb con el driver 3.4.2
  *
- * <p>Fecha 18-abr-2017</p>
+ * <p>
+ * Fecha 18-abr-2017</p>
  *
  * @version 1.0
  */
@@ -655,6 +656,9 @@ public class ConectorImpl implements Conector {
         return exito;
     }
 
+    /**
+     * Método usado para el guardado de un millón de registros uno a uno
+     */
     public void guardarMillonUnoAUno() {
 
         try (MongoClient mongoClient = new MongoClient(URLBBDD, PUERTOBBDD)) {
@@ -684,6 +688,10 @@ public class ConectorImpl implements Conector {
         }
     }
 
+    /**
+     * Método usado para el guardado de un millón de registros a traves de un
+     * hashmap
+     */
     public void guardarMillonHashmap() {
 
         try (MongoClient mongoClient = new MongoClient(URLBBDD, PUERTOBBDD)) {
@@ -716,6 +724,9 @@ public class ConectorImpl implements Conector {
         }
     }
 
+    /**
+     * Método usado para la select de ids predeterminadas
+     */
     public void selectIds() {
 
         long antes = utilidad.conseguirHora();
@@ -750,6 +761,9 @@ public class ConectorImpl implements Conector {
         LOG.log(Level.INFO, "----------------- Han Pasado: {0} segs ------------------", tiempoTranscurrido);
     }
 
+    /**
+     * Método usado para la select de cups predeterminadas
+     */
     public void selectCups() {
         long antes = utilidad.conseguirHora();
 
@@ -784,6 +798,9 @@ public class ConectorImpl implements Conector {
         LOG.log(Level.INFO, "----------------- Han Pasado: {0} segs ------------------", tiempoTranscurrido);
     }
 
+    /**
+     * Método usado para la select de fechas
+     */
     public void selectFechas() {
         String fechasArreglo[] = utilidad.generarCincoFechas();
         for (String fechaSacada : fechasArreglo) {
@@ -809,75 +826,10 @@ public class ConectorImpl implements Conector {
         }
     }
 
-//// -------------------------------------------------------- Metodos Pregunta StackOverflow ---------------------------------------------------
-//// https://es.stackoverflow.com/q/63832/32964
-//    /**
-//     * Método simple para la conexión de una base de datos. Hace uso de metodos
-//     * deprecados
-//     */
-//    @Deprecated
-//    public void conectarBaseDatosDeprecado() {
-//        try {
-//
-//            MongoClient mongoClient = new MongoClient(URLBBDD, PUERTOBBDD);
-//
-//            DB baseDatosDeprecada = mongoClient.getDB(BASEDATOS_NOMBRE);
-//
-//            LOG.log(
-//                    Level.INFO, "Conectando a Base De Datos: {0}...",
-//                    baseDatosDeprecada.getName()
-//            );
-//
-//            // metodo authenticate no existe
-////            boolean auth = baseDatosDeprecada.authenticate(USUARIO, CONTRASENNA);
-////
-////            if (auth) {
-////                LOG.log(Level.INFO, "Conexión Exitosa");
-////            } else {
-////                LOG.log(Level.INFO, "Conexión Fallida");
-////            }
-//        } catch (Exception e) {
-//            LOG.log(
-//                    Level.WARNING, "Excepcion Al Conectarse A La Base De Datos: {0}",
-//                    e.getMessage()
-//            );
-//        }
-//    }
-//
     /**
-     * Método simple para la conexión de una base de datos
+     * Método usado para el gurdado de dos millones de registros y contabilizar
+     * dos métodos cada uno mete un millón
      */
-//    public void conectarBaseDatosConAutentificacion() {
-//
-//        try {
-//
-//            MongoClient mongoClient = new MongoClient(URLBBDD, PUERTOBBDD);
-//
-//            MongoDatabase baseDatos = mongoClient.getDatabase("prueba");
-//
-//            LOG.log(Level.INFO, "Conectando a Base De Datos: {0}...", baseDatos.getName());
-//
-//            boolean auth = baseDatos.(USUARIO, CONTRASENNA);
-//
-//            if (auth) {
-//                LOG.log(Level.INFO, "Conexión Exitosa");
-//            } else {
-//                LOG.log(Level.INFO, "Conexión Fallida");
-//            }
-//        } catch (Exception e) {
-//            LOG.log(Level.WARNING, "Excepcion Al Conectarse A La Base De Datos: {0}", e.getMessage());
-//
-//        }
-//    }
-//        /**
-//     * Metodo usado para la recuperacion de los valores de una coleccion en
-//     * forma de coleccion
-//     *
-//     * @param nombreColeccion String que contiene el nombre de la colección a
-//     * buscar
-//     * @return coleccionEncontrada - Collection que contiene la coleccion
-//     * encontrada
-//     */
     @Override
     public void guardadoUnMillon() {
 
