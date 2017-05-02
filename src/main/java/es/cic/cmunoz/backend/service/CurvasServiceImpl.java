@@ -1,35 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.cic.cmunoz.backend.service;
 
 import es.cic.cmunoz.backend.dominio.Curvas;
 import es.cic.cmunoz.backend.repository.CurvasRepository;
-import es.cic.cmunoz.backend.util.Conector;
 import es.cic.cmunoz.backend.util.Utilidades;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Clase usada para el llamado a métodos del repository registrando los segundos
+ */
 @Service
 public class CurvasServiceImpl implements CurvasService {
 
+    /**
+     * Objeto que contiene todos los métodos necesarios para el tratamiento de
+     * la base de datos
+     */
     @Autowired
     public CurvasRepository repository;
 
-    @Autowired
-    public Conector conector;
-
+    /**
+     * Objeto que tiene utilitarios necesarios para la generacion de datos
+     */
     @Autowired
     public Utilidades utilidad;
 
+    /**
+     * Implementación de la interfaz CurvasService
+     */
     public CurvasServiceImpl() {
 
     }
 
+    /*
+     * Método usado para el select de curvas seleccionandolas por fechas
+     */
     @Override
     public void verCincoFechas() {
         String[] arregloFechas = utilidad.generarCincoFechas();
@@ -46,9 +53,14 @@ public class CurvasServiceImpl implements CurvasService {
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("verCincoFechas: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad(
+                "verCincoFechas: " + tiempoSacado / 1000 + " Segundos"
+        );
     }
 
+    /**
+     * Método usado para el select de 6 curvas seleccionandolas por Id Curva
+     */
     @Override
     public void verSeisIdCurvas() {
         int[] arregloIds = utilidad.generarArregloIds();
@@ -66,9 +78,16 @@ public class CurvasServiceImpl implements CurvasService {
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("verSeisIdCurvas: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad(
+                "verSeisIdCurvas: " + tiempoSacado / 1000 + " Segundos"
+        );
     }
 
+    /**
+     * Método usado para la seleccion de curvas seleccionandolos por cups
+     *
+     * @since 1.8
+     */
     @Override
     public void verCincoCups() {
         List<String> listaCups = utilidad.generarArreglosCups();
@@ -80,14 +99,19 @@ public class CurvasServiceImpl implements CurvasService {
         listaCups.stream().forEach((cupsSacado) -> {
             repository.encontrarCups(cupsSacado).toString();
         });
-        
+
         long despues = Utilidades.conseguirHora();
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("verCincoCups: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad(
+                "verCincoCups: " + tiempoSacado / 1000 + " Segundos"
+        );
     }
 
+    /**
+     * Método usado para el guardado de un millon de registros en base de datos
+     */
     @Override
     public void guardarMillon() {
 
@@ -113,30 +137,43 @@ public class CurvasServiceImpl implements CurvasService {
         }
 
         long antes = Utilidades.conseguirHora();
+
         repository.save(listaCurvasGuardar);
 
         long despues = Utilidades.conseguirHora();
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("guardarMillon: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad(
+                "guardarMillon: " + tiempoSacado / 1000 + " Segundos"
+        );
     }
 
+    /**
+     * Método usado para la seleccion de curvas por patrón
+     */
     @Override
     public void selecionarPorPatron() {
 
         long antes = Utilidades.conseguirHora();
 
-        List<Curvas> listaCurvas = repository.encontrarCurvasPorPattern("1678", "1");
+        List<Curvas> listaCurvas;
+        listaCurvas = repository.encontrarCurvasPorPattern("1678", "1");
 
         long despues = Utilidades.conseguirHora();
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("selecionarPorPatron: " + tiempoSacado / 1000 + " Segundos");
-        
+        utilidad.registrarActividad(
+                "selecionarPorPatron: " + tiempoSacado / 1000 + " Segundos"
+        );
+
     }
 
+    /**
+     * Método usado para la recuperación de una curva que tenga un cups
+     * determinado
+     */
     @Override
     public void recuperarUpdate() {
 
@@ -148,10 +185,16 @@ public class CurvasServiceImpl implements CurvasService {
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("recuperarUpdate: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad(
+                "recuperarUpdate: " + tiempoSacado / 1000 + " Segundos"
+        );
 
     }
 
+    /**
+     * Método usado para la actualización de curvas que tengan un Id Curva menor
+     * de 100.000
+     */
     @Override
     public void updateMenoresDeCienMil() {
 
@@ -166,6 +209,9 @@ public class CurvasServiceImpl implements CurvasService {
         utilidad.registrarActividad("updateMenoresDeCienMil: " + tiempoSacado / 1000 + " Segundos");
     }
 
+    /**
+     * Método usado para la actualización de una curva
+     */
     @Override
     public void updateUnaCurva() {
 
@@ -177,7 +223,9 @@ public class CurvasServiceImpl implements CurvasService {
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("updateUnaCurva: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad(
+                "updateUnaCurva: " + tiempoSacado / 1000 + " Segundos"
+        );
     }
 
 }

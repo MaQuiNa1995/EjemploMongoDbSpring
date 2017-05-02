@@ -13,7 +13,7 @@ import java.util.Random;
 import org.springframework.stereotype.Service;
 
 /**
- * @version 1.0
+ * Clase que contiene métodos para la generación de datos
  */
 @Service
 public class Utilidades {
@@ -23,9 +23,11 @@ public class Utilidades {
     }
 
     /**
+     * Método usado para la generación de Cups
      *
-     * @param numeroCups
-     * @return
+     * @param numeroCups Número usado para la generación del cups (Corresponde
+     * al numero variable del cups)
+     * @return cupsGenerado - Cups generado y formateado
      */
     public String generarCups(int numeroCups) {
 
@@ -45,8 +47,9 @@ public class Utilidades {
     }
 
     /**
+     * Método usado para la generación de un millón de ids
      *
-     * @return
+     * @return mapaIds - Lista que contiene todos los ids que usaremos
      */
     public List<Integer> generarId() {
 
@@ -60,8 +63,9 @@ public class Utilidades {
     }
 
     /**
+     * Método usado para la generación de un millón de fechas del año 2016
      *
-     * @return
+     * @return mapaFechas - Lista de fechas generadas
      */
     public List<String> generarFechas() {
 
@@ -103,8 +107,10 @@ public class Utilidades {
     }
 
     /**
+     * Método usado para la generación de cinco fechas
      *
-     * @return
+     * @return mapaFechas - Arreglo que contiene las fechas generadas y
+     * formateadas
      */
     public String[] generarCincoFechas() {
 
@@ -128,6 +134,11 @@ public class Utilidades {
         return mapaFechas;
     }
 
+    /**
+     * Método usado para la generación de un dia aleatorio
+     *
+     * @return diaFormateado - String que representa el dia generado en numeros
+     */
     private String generarUnDia() {
 
         Random rand = new Random();
@@ -143,6 +154,11 @@ public class Utilidades {
         return diaFormateado;
     }
 
+    /**
+     * Método usado para la generación de un mes aleatorio
+     *
+     * @return diaFormateado - String que representa el mes generado en numeros
+     */
     private String generarUnMes() {
 
         Random rand = new Random();
@@ -159,8 +175,10 @@ public class Utilidades {
     }
 
     /**
+     * Método usado para la generación de valores
      *
-     * @return
+     * @return magnitudGenerada - String que representa el valor generado y
+     * formateado
      */
     public String generarValores() {
 
@@ -178,8 +196,10 @@ public class Utilidades {
     }
 
     /**
+     * Método usado para la generación de flags
      *
-     * @return
+     * @return flagGenerada - String que representa el valor generado y
+     * formateado
      */
     public String generarFlags() {
 
@@ -198,7 +218,10 @@ public class Utilidades {
     }
 
     /**
-     * ------------------------- Utilitarios ----------------------------
+     * Método usado para la generacion del arreglo de los meses del año
+     *
+     * @return ARREGLOMESES - Arreglo que contiene la información de los meses
+     * del año
      */
     private int[] generarDiasMeses() {
 
@@ -227,6 +250,12 @@ public class Utilidades {
         return ARREGLOMESES;
     }
 
+    /**
+     * Método usado para el formateado de un dia del mes
+     *
+     * @param diaMes String del dia del mes sin formatear
+     * @return diaMesFormateado - String dia del mes formateada
+     */
     private String formatearDiaMes(int diaMes) {
         StringBuilder sb = new StringBuilder();
         if (diaMes < 10) {
@@ -237,6 +266,12 @@ public class Utilidades {
         return diaMesFormateado;
     }
 
+    /**
+     * Método usado para el formateado de un cups
+     *
+     * @param cadenaSinCeros Cups sin formatear
+     * @return cadenaConvertida - Cups formateado
+     */
     private String annadirCeros(String cadenaSinCeros) {
 
         StringBuilder sb = new StringBuilder();
@@ -254,16 +289,26 @@ public class Utilidades {
         return cadenaConvertida;
     }
 
+    /**
+     * Método usado para la generación de ids
+     *
+     * @return ARREGLOIDS - Arreglo de ids
+     */
     public int[] generarArregloIds() {
-        final int[] ARREGLO_IDS = {
+        final int[] ARREGLOIDS = {
             1, 200000, 400000,
             600000, 800000,
             1000000, 234567890
         };
 
-        return ARREGLO_IDS;
+        return ARREGLOIDS;
     }
 
+    /**
+     * Método usado para la generación de cups aleatorios
+     *
+     * @return arregloRandoms - arreglo que contiene los cups generados
+     */
     public List<String> generarArreglosCups() {
         Random rand = new Random();
         List<String> arregloRandoms = new ArrayList<>();
@@ -276,23 +321,48 @@ public class Utilidades {
         return arregloRandoms;
     }
 
+    /**
+     * Método usado para conseguir la hora actual
+     *
+     * @return ahoraMismo - Tiempo de ahora mismo en milisegundos
+     */
     public static long conseguirHora() {
-        return Calendar.getInstance().getTimeInMillis();
+
+        long ahoraMismo = Calendar.getInstance().getTimeInMillis();
+
+        return ahoraMismo;
     }
 
+    /**
+     * Método usado para el cálculo entre horas
+     *
+     * @param antes registro del primer tiempo
+     * @param despues registro del segundo tiempo
+     * @return tiempoCalculado - numero que contiene el resultado de la
+     * operación
+     */
     public long calcularTiempo(long antes, long despues) {
-        return despues - antes;
+
+        long tiempoCalculado = despues - antes;
+
+        return tiempoCalculado;
     }
 
+    /**
+     * Método usado para registrar una String en un fichero predeterminado
+     *
+     * @param cadenaMeter String que meteremos al archivo
+     */
     public void registrarActividad(String cadenaMeter) {
 
         String nombre = "log.txt";
 
-        try (FileWriter fichero = new FileWriter(nombre,true)){
+        try (FileWriter fichero = new FileWriter(nombre, true)) {
 
             fichero.write(cadenaMeter + "\r\n");
 
         } catch (Exception ex) {
+            //TODO Tratar excepciones
         }
     }
 
