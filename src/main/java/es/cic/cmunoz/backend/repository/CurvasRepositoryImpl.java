@@ -38,7 +38,7 @@ public class CurvasRepositoryImpl implements CurvasRepositoryCustom {
         Update actualizado = new Update();
         actualizado.set("Cups", "GB0027700000000000000010F");
 
-        mongoTemplate.updateMulti(consulta, actualizado, "JuanchoCurvas");
+        mongoTemplate.updateFirst(consulta, actualizado, "JuanchoCurvas");
     }
 
 }
