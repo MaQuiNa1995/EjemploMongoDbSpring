@@ -1,5 +1,7 @@
 package es.cic.cmunoz.backend.dominio;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -9,8 +11,12 @@ public class Curvas {
 
     @Id
     private String id;
+    @Size(max = 7, message = "Id Curva no puede tener mas de 7 caracteres")
     @Field("Id Curva")
     private int idCurva;
+    
+    @NotNull
+    @Size(min = 5, max = 10, message = "Cups tiene que tener una longitud de 26 caracteres")
     @Field("Cups")
     private String cups;
     @Field("Magnitud")
