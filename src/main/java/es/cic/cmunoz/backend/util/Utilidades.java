@@ -1,10 +1,13 @@
 package es.cic.cmunoz.backend.util;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +15,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class Utilidades {
+
+    private static final Logger LOG = Logger.getLogger(Utilidades.class.getName());
 
     /**
      * Constructor genérico de la clase
@@ -28,6 +33,8 @@ public class Utilidades {
      * @return cupsGenerado - Cups generado y formateado
      */
     public String generarCups(int numeroCups) {
+        
+        LOG.info("Generando cups");
 
         final String PRINCIPIOCUPS = "ES00277000000000";
         final String FINCUPS = "0F";
@@ -50,6 +57,8 @@ public class Utilidades {
      * @return mapaIds - Lista que contiene todos los ids que usaremos
      */
     public List<Integer> generarId() {
+        
+        LOG.info("Generando arreglo de Id Curvas");
 
         List<Integer> mapaIds = new ArrayList<>();
 
@@ -67,6 +76,8 @@ public class Utilidades {
      */
     public List<String> generarFechas() {
 
+        LOG.info("Generando arreglo de fechas");
+        
         final String ANNO = "2016";
         final int arraymeses[] = generarDiasMeses();
 
@@ -111,6 +122,8 @@ public class Utilidades {
      * formateadas
      */
     public String[] generarCincoFechas() {
+        
+        LOG.info("Generando cinco fechas");
 
         final String ANNO = "2016";
 
@@ -179,6 +192,8 @@ public class Utilidades {
      * formateado
      */
     public String generarValores() {
+        
+        LOG.info("Generando Valores");
 
         StringBuilder sb = new StringBuilder();
 
@@ -200,6 +215,8 @@ public class Utilidades {
      * formateado
      */
     public String generarFlags() {
+        
+        LOG.info("Generando Flags");
 
         StringBuilder sb = new StringBuilder();
         final int LIMITE = 2;
@@ -293,6 +310,9 @@ public class Utilidades {
      * @return ARREGLOIDS - Arreglo de ids
      */
     public int[] generarArregloIds() {
+        
+        LOG.info("Generando arreglo de ids");
+        
         final int[] ARREGLOIDS = {
             1, 200000, 400000,
             600000, 800000,
@@ -308,11 +328,14 @@ public class Utilidades {
      * @return arregloRandoms - arreglo que contiene los cups generados
      */
     public List<String> generarArreglosCups() {
+        
+        LOG.info("Generando arreglo de cups");
+        
         Random rand = new Random();
         List<String> arregloRandoms = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
-            String cupsGenerado = generarCups((rand.nextInt(1000000)));
+            String cupsGenerado = generarCups(rand.nextInt(1000000));
             arregloRandoms.add(cupsGenerado);
         }
 
@@ -353,14 +376,14 @@ public class Utilidades {
      */
     public void registrarActividad(String cadenaMeter) {
 
-        String nombre = "log.txt";
+        String nombreFichero = "log.txt";
 
-        try (FileWriter fichero = new FileWriter(nombre, true)) {
+        try (FileWriter fichero = new FileWriter(nombreFichero, true)) {
 
             fichero.write(cadenaMeter + "\r\n");
 
-        } catch (Exception ex) {
-            //TODO Tratar excepciones
+        } catch (IOException ex) {
+            LOG.log(Level.INFO, "Hubo una excepcion al intentar escribir en el fichero {0} Razon: {1}", new Object[]{nombreFichero, ex.getMessage()});
         }
     }
 
