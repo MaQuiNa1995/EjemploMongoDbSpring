@@ -91,7 +91,6 @@ public class CurvasServiceImpl implements CurvasService {
     @Override
     public void verCincoCups() {
         List<String> listaCups = utilidad.generarArreglosCups();
-        System.out.println("Inicio Select Cinco Cups");
 
         long antes = Utilidades.conseguirHora();
 
@@ -114,8 +113,6 @@ public class CurvasServiceImpl implements CurvasService {
      */
     @Override
     public void guardarMillon() {
-
-        System.out.println("Inicio Inser Millon Objetos");
 
         List<String> listaFechas = utilidad.generarFechas();
         List<Integer> listaId = utilidad.generarId();

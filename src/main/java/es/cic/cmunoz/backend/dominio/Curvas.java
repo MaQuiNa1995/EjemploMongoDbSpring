@@ -23,10 +23,12 @@ public class Curvas {
     private String flag;
 
     public Curvas() {
-        
+
     }
 
-    public Curvas(String id, int idCurva, String cups, int magnitud, String fecha, String valores, String flag) {
+    public Curvas(String id, int idCurva, String cups,
+            int magnitud, String fecha, String valores, String flag) {
+
         this.id = id;
         this.idCurva = idCurva;
         this.cups = cups;
@@ -94,8 +96,13 @@ public class Curvas {
 
     @Override
     public String toString() {
-        return "Curvas{" + "id=" + id + ", idCurva=" + idCurva + ", cups=" + cups + ", magnitud=" + magnitud + ", fecha=" + fecha + ", valores=" + valores + ", flag=" + flag + '}';
+        return "Curvas{" + "id=" + id
+                + ", idCurva=" + idCurva
+                + ", cups=" + cups
+                + ", magnitud=" + magnitud
+                + ", fecha=" + fecha
+                + ", valores=" + valores
+                + ", flag=" + flag + '}';
     }
-
 
 }
