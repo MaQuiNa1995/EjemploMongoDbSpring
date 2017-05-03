@@ -17,7 +17,7 @@ public class CurvasRepositoryImpl implements CurvasRepositoryCustom {
      * de datos
      */
     @Autowired
-    MongoTemplate mongoTemplate;
+    private MongoTemplate mongoTemplate;
 
     /**
      * Método usado para hacer la actualización (Update) de las curvas que

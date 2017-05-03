@@ -19,13 +19,13 @@ public class CurvasServiceImpl implements CurvasService {
      * la base de datos
      */
     @Autowired
-    public CurvasRepository repository;
+    private CurvasRepository repository;
 
     /**
      * Objeto que tiene utilitarios necesarios para la generacion de datos
      */
     @Autowired
-    public Utilidades utilidad;
+    private Utilidades utilidad;
 
     /**
      * Implementación de la interfaz CurvasService
