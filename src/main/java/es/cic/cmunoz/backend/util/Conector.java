@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Tiene métodos para conectarse y manipular una base de
+ * datos hecha en mongoDb con el driver 3.4.2
+ */
 @Repository
 public interface Conector {
 

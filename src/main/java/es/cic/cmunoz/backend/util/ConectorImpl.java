@@ -23,13 +23,8 @@ import org.springframework.stereotype.Service;
 import static com.mongodb.client.model.Filters.eq;
 
 /**
- * Clase ConectorImpl tiene métodos para conectarse y manipular una base de
+ * Tiene métodos para conectarse y manipular una base de
  * datos hecha en mongoDb con el driver 3.4.2
- *
- * <p>
- * Fecha 18-abr-2017</p>
- *
- * @version 1.0
  */
 @Service
 public class ConectorImpl implements Conector {

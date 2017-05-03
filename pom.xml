@@ -5,7 +5,7 @@
 
     <groupId>es.cic.cmunoz</groupId>
     <artifactId>MongoDbMascota</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.2-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>MongoDbMascota</name>
@@ -35,12 +35,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver 
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>3.4.2</version>
-        </dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -58,7 +52,6 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
