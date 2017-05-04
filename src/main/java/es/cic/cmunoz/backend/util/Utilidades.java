@@ -191,20 +191,17 @@ public class Utilidades {
      * @return magnitudGenerada - String que representa el valor generado y
      * formateado
      */
-    public String generarValores() {
+    public int[] generarValores() {
 
         LOG.info("Generando Valores");
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < 24; i++) {
-            sb.append("1678;");
+        
+        int[] arregloValores =new int[25];
+        
+        for (int i = 0; i < arregloValores.length; i++) {
+            arregloValores[i] = 1678;
         }
-        sb.append("1678");
 
-        String magnitudGenerada = sb.toString();
-
-        return magnitudGenerada;
+        return arregloValores;
 
     }
 
@@ -214,22 +211,19 @@ public class Utilidades {
      * @return flagGenerada - String que representa el valor generado y
      * formateado
      */
-    public String generarFlags() {
+    public int[] generarFlags() {
 
         LOG.info("Generando Flags");
-
-        StringBuilder sb = new StringBuilder();
+        
+        int[] arregloFlag=new int[25];
+        
         final int LIMITE = 2;
         Random rand = new Random();
-        for (int i = 0; i < 24; i++) {
-            sb.append(String.valueOf(rand.nextInt(LIMITE)));
-            sb.append(";");
+        for (int i = 0; i < arregloFlag.length; i++) {
+            arregloFlag[i]=rand.nextInt(LIMITE);
         }
-        sb.append(String.valueOf(rand.nextInt(LIMITE)));
 
-        String flagGenerada = sb.toString();
-
-        return flagGenerada;
+        return arregloFlag;
     }
 
     /**

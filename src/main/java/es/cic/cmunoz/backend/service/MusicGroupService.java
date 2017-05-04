@@ -5,12 +5,10 @@
  */
 package es.cic.cmunoz.backend.service;
 
-/**
- * @autor cmunoz
- * @version 1.0
- */
-public interface GrupoMusicaService {
+import es.cic.cmunoz.backend.dominio.MusicGroup;
 
-    void guardarGrupo();
+public interface MusicGroupService {
+
+    void storeGroup(MusicGroup group);
     
 }

@@ -15,7 +15,7 @@ public class Curvas {
     @Field("Id Curva")
     private int idCurva;
     
-    @NotNull
+    @NotNull(message = "No puede ser nulo")
     @Size(min = 5, max = 10, message = "Cups tiene que tener una longitud de 26 caracteres")
     @Field("Cups")
     private String cups;
@@ -24,16 +24,16 @@ public class Curvas {
     @Field("Fecha")
     private String fecha;
     @Field("Valores")
-    private String valores;
+    private int[] valores;
     @Field("Flag")
-    private String flag;
+    private int[] flag;
 
     public Curvas() {
 
     }
 
     public Curvas(String id, int idCurva, String cups,
-            int magnitud, String fecha, String valores, String flag) {
+            int magnitud, String fecha, int[] valores, int[] flag) {
 
         this.id = id;
         this.idCurva = idCurva;
@@ -84,19 +84,19 @@ public class Curvas {
         this.fecha = fecha;
     }
 
-    public String getValores() {
+    public int[] getValores() {
         return valores;
     }
 
-    public void setValores(String valores) {
+    public void setValores(int[] valores) {
         this.valores = valores;
     }
 
-    public String getFlag() {
+    public int[] getFlag() {
         return flag;
     }
 
-    public void setFlag(String flag) {
+    public void setFlag(int[] flag) {
         this.flag = flag;
     }
 
