@@ -49,8 +49,10 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
         
         
         grupo.setType("888888888889");
-        grupo.setTitle("hhhhhhh");
-        grupo.setIntegrantes(memberList);
+        grupo.setTitle("hhhhhhhu");
+        grupo.setNumMembers(3);
+        grupo.setMembers(memberList);
+        
         musicaService.storeGroup(grupo);
 
 //        for (int i = 0; i < 29; i++) {

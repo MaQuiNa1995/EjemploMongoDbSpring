@@ -1,5 +1,6 @@
 package es.cic.cmunoz.backend.dominio;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,10 +15,31 @@ public class MusicGroup {
     private String title;
     @Field("Type")
     private String type;
+    @Field("Num Members")
+    private int numMembers;
     @Field("Members")
     private String[] members;
 
     public MusicGroup() {
+    }
+
+    //@Min(Number)
+    @Max(4)
+    public int getNumMembers() {
+        return numMembers;
+    }
+
+    
+    public void setNumMembers(int numMembers) {
+        this.numMembers = numMembers;
+    }
+
+    public String[] getMembers() {
+        return members;
+    }
+
+    public void setMembers(String[] members) {
+        this.members = members;
     }
 
     public String getId() {
@@ -44,14 +66,6 @@ public class MusicGroup {
 
     public void setType(String tipo) {
         this.type = tipo;
-    }
-
-    public String[] getIntegrantes() {
-        return members;
-    }
-
-    public void setIntegrantes(String[] integrantes) {
-        this.members = integrantes;
     }
 
     @Override

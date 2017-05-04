@@ -14,7 +14,6 @@ public class Curvas {
     @Size(max = 7, message = "Id Curva no puede tener mas de 7 caracteres")
     @Field("Id Curva")
     private int idCurva;
-    
     @NotNull(message = "No puede ser nulo")
     @Size(min = 5, max = 10, message = "Cups tiene que tener una longitud de 26 caracteres")
     @Field("Cups")
