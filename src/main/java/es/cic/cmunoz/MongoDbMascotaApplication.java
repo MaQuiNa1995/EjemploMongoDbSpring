@@ -40,16 +40,14 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
      */
     @Override
     public void run(String... args) {
-        String[] memberList = new String[3];
-        memberList[0] = "typeA";
-        memberList[1] = "typeB";
-        memberList[2] = "typec";
+        String[] memberList = new String[2];
+        memberList[0] = "aaa";
+        memberList[1] = "bbb";
 
         MusicGroup grupo = new MusicGroup();
         
-        
-        grupo.setType("888888888889");
-        grupo.setTitle("hhhhhhhu");
+        grupo.setType("88888888888");
+        grupo.setTitle("hhhhhhh");
         grupo.setNumMembers(3);
         grupo.setMembers(memberList);
         

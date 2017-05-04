@@ -34,6 +34,7 @@ public class MusicGroup {
         this.numMembers = numMembers;
     }
 
+    @Size(min = 2, max = 2, message = "Array need to have only 2 elements")
     public String[] getMembers() {
         return members;
     }

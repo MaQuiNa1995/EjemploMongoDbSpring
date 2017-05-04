@@ -1,21 +1,20 @@
 package es.cic.cmunoz.backend.dominio;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+//@Pattern(regexp=".+@.+\\.[a-z]+")
 
 @Document(collection = "JuanchoCurvas")
 public class Curvas {
 
     @Id
     private String id;
-    @Size(max = 7, message = "Id Curva no puede tener mas de 7 caracteres")
     @Field("Id Curva")
     private int idCurva;
-    @NotNull(message = "No puede ser nulo")
-    @Size(min = 5, max = 10, message = "Cups tiene que tener una longitud de 26 caracteres")
     @Field("Cups")
     private String cups;
     @Field("Magnitud")
@@ -31,10 +30,9 @@ public class Curvas {
 
     }
 
-    public Curvas(String id, int idCurva, String cups,
+    public Curvas(int idCurva, String cups,
             int magnitud, String fecha, int[] valores, int[] flag) {
 
-        this.id = id;
         this.idCurva = idCurva;
         this.cups = cups;
         this.magnitud = magnitud;
@@ -43,6 +41,8 @@ public class Curvas {
         this.flag = flag;
     }
 
+    
+    
     public String getId() {
         return id;
     }
@@ -51,6 +51,8 @@ public class Curvas {
         this.id = id;
     }
 
+    @Min(value=1, message="El id de la curva tiene que ser mayor de 1")
+//    @Max(value=, message="El  tiene que ser menor de ")
     public int getIdCurva() {
         return idCurva;
     }
@@ -59,6 +61,7 @@ public class Curvas {
         this.idCurva = idCurva;
     }
 
+    @Size(min = 25, max = 25, message = "Cups no valido tiene que tener 25 caracteres")
     public String getCups() {
         return cups;
     }
@@ -75,6 +78,7 @@ public class Curvas {
         this.magnitud = magnitud;
     }
 
+    @Size(min = 8, max = 8, message = "Fecha no valida tiene que tener 8 caracteres")
     public String getFecha() {
         return fecha;
     }
@@ -83,6 +87,7 @@ public class Curvas {
         this.fecha = fecha;
     }
 
+    
     public int[] getValores() {
         return valores;
     }
