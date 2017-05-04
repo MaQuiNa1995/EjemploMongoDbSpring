@@ -44,9 +44,11 @@ public class CurvasServiceImpl implements CurvasService {
         long antes = Utilidades.conseguirHora();
 
         for (String cadenaSacada : arregloFechas) {
-
-            List<Curvas> arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
-
+            try {
+                List<Curvas> arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
+            } catch (NullPointerException e) {
+                System.out.println("Esa Fecha NoExiste");
+            }
         }
 
         long despues = Utilidades.conseguirHora();

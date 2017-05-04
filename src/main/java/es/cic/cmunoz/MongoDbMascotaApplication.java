@@ -33,10 +33,10 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
     public void run(String... args) {
 
 //        for (int i = 0; i < 38; i++) {
-            curvasService.guardarMillon();
+//            curvasService.guardarMillon();
 //        }
-//        curvasService.verCincoCups();
-//        curvasService.verCincoFechas();
+        curvasService.verCincoCups();
+        curvasService.verCincoFechas();
 //        curvasService.verSeisIdCurvas();
 //        curvasService.selecionarPorPatron(); 
 //        curvasService.updateMenoresDeCienMil();

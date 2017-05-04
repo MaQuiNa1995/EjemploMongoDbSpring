@@ -128,18 +128,23 @@ public class Utilidades {
         final String ANNO = "2016";
 
         String mapaFechas[] = {
-            null, null, null, null, null
+            null, null, null, null, null, null
         };
 
         for (int i = 0; i < mapaFechas.length; i++) {
 
             StringBuilder fechaCompleta = new StringBuilder();
 
-            fechaCompleta.append(ANNO);
-            fechaCompleta.append(generarUnMes());
-            fechaCompleta.append(generarUnDia());
+            if (i != 6) {
+                fechaCompleta.append(ANNO);
+                fechaCompleta.append(generarUnMes());
+                fechaCompleta.append(generarUnDia());
 
-            mapaFechas[i] = fechaCompleta.toString();
+                mapaFechas[i] = fechaCompleta.toString();
+            } else {
+                mapaFechas[i] = "FechaNoExistente";
+            }
+
         }
 
         return mapaFechas;
@@ -194,9 +199,9 @@ public class Utilidades {
     public int[] generarValores() {
 
         LOG.info("Generando Valores");
-        
-        int[] arregloValores =new int[25];
-        
+
+        int[] arregloValores = new int[25];
+
         for (int i = 0; i < arregloValores.length; i++) {
             arregloValores[i] = 1678;
         }
@@ -214,13 +219,13 @@ public class Utilidades {
     public int[] generarFlags() {
 
         LOG.info("Generando Flags");
-        
-        int[] arregloFlag=new int[25];
-        
+
+        int[] arregloFlag = new int[25];
+
         final int LIMITE = 2;
         Random rand = new Random();
         for (int i = 0; i < arregloFlag.length; i++) {
-            arregloFlag[i]=rand.nextInt(LIMITE);
+            arregloFlag[i] = rand.nextInt(LIMITE);
         }
 
         return arregloFlag;
@@ -380,7 +385,7 @@ public class Utilidades {
             LOG.log(
                     Level.INFO,
                     "Hubo una excepcion al intentar escribir en el fichero {0}"
-                            + "Razon: {1}", new Object[]{nombreFichero,ex.getMessage()});
+                    + "Razon: {1}", new Object[]{nombreFichero, ex.getMessage()});
         }
     }
 
