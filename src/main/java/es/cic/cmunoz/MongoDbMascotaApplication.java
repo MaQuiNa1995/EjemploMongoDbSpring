@@ -12,7 +12,6 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
 
     @Autowired
     private CurvasService curvasService;
-    
 
     /**
      * Método principal para la ejecución del programa
@@ -33,10 +32,9 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-//        for (int i = 0; i < 29; i++) {
-//            
+//        for (int i = 0; i < 38; i++) {
+            curvasService.guardarMillon();
 //        }
-//        curvasService.guardarMillon();
 //        curvasService.verCincoCups();
 //        curvasService.verCincoFechas();
 //        curvasService.verSeisIdCurvas();
