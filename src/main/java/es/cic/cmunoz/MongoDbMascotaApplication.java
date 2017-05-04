@@ -1,12 +1,10 @@
 package es.cic.cmunoz;
 
-import es.cic.cmunoz.backend.dominio.MusicGroup;
 import es.cic.cmunoz.backend.service.CurvasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import es.cic.cmunoz.backend.service.MusicGroupService;
 
 @SpringBootApplication
 public class MongoDbMascotaApplication implements CommandLineRunner {
@@ -14,9 +12,7 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
 
     @Autowired
     private CurvasService curvasService;
-
-    @Autowired
-    private MusicGroupService musicaService;
+    
 
     /**
      * Método principal para la ejecución del programa
