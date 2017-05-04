@@ -1,5 +1,6 @@
 package es.cic.cmunoz.backend.dominio;
 
+import java.util.Arrays;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
@@ -87,7 +88,7 @@ public class Curvas {
         this.fecha = fecha;
     }
 
-    
+    @Size(min = 25, max = 25, message = "Arreglo de valores no valido, tiene que tener 25 elementos")
     public int[] getValores() {
         return valores;
     }
@@ -96,6 +97,7 @@ public class Curvas {
         this.valores = valores;
     }
 
+    @Size(min = 25, max = 25, message = "Arreglo de flags no valido, tiene que tener 25 elementos")
     public int[] getFlag() {
         return flag;
     }
@@ -106,13 +108,9 @@ public class Curvas {
 
     @Override
     public String toString() {
-        return "Curvas{" + "id=" + id
-                + ", idCurva=" + idCurva
-                + ", cups=" + cups
-                + ", magnitud=" + magnitud
-                + ", fecha=" + fecha
-                + ", valores=" + valores
-                + ", flag=" + flag + '}';
+        return "Curvas{" + "id=" + id + ", idCurva=" + idCurva + ", cups=" + cups + ", magnitud=" + magnitud + ", fecha=" + fecha + ", valores=" + Arrays.toString(valores) + ", flag=" + Arrays.toString(flag) + '}';
     }
+
+
 
 }
