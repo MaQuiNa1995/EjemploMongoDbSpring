@@ -1,5 +1,7 @@
 package es.cic.cmunoz.backend.service;
 
+import es.cic.cmunoz.backend.dominio.Curvas;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +23,7 @@ public interface CurvasService {
 
     /**
      * Método usado para la seleccion de curvas por patrón
+     * @return arregloFechasMismoDia - Lista de fechas del mismo dia
      */
     List<Curvas> selecionarPorPatron();
 
@@ -39,6 +42,7 @@ public interface CurvasService {
 
     /**
      * Método usado para el select de curvas seleccionandolas por fechas
+     * @return arregloFechasMismoDia - Lista de fechas del mismo dia
      */
     List<Curvas> verCincoFechas();
 
