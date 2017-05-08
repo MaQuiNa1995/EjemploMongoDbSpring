@@ -71,6 +71,7 @@ public class Curvas {
         this.cups = cups;
     }
 
+    @Min(value=7, message="El id de la curva tiene que ser mayor de 1")
     public int getMagnitud() {
         return magnitud;
     }
