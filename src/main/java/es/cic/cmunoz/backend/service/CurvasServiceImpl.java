@@ -27,30 +27,27 @@ public class CurvasServiceImpl implements CurvasService {
     @Autowired
     private Utilidades utilidad;
 
-    /**
-     * Implementación de la interfaz CurvasService
-     */
-    public CurvasServiceImpl() {
-
-    }
-
     /*
      * Método usado para el select de curvas seleccionandolas por fechas
+     *
+     * @return arregloFechasMismoDia - Lista de fechas del mismo dia
      */
     @Override
-    public void verCincoFechas() {
+    public List<Curvas> verCincoFechas() {
         String[] arregloFechas = utilidad.generarCincoFechas();
 
         long antes = Utilidades.conseguirHora();
 
+        List<Curvas> arregloFechasMismoDia=null;
+        
         for (String cadenaSacada : arregloFechas) {
             try {
-                List<Curvas> arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
+                arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
             } catch (NullPointerException e) {
                 System.out.println("Esa Fecha NoExiste");
             }
         }
-
+        
         long despues = Utilidades.conseguirHora();
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
@@ -58,6 +55,8 @@ public class CurvasServiceImpl implements CurvasService {
         utilidad.registrarActividad(
                 "verCincoFechas: " + tiempoSacado / 1000 + " Segundos"
         );
+        
+        return arregloFechasMismoDia;
     }
 
     /**
@@ -150,9 +149,10 @@ public class CurvasServiceImpl implements CurvasService {
 
     /**
      * Método usado para la seleccion de curvas por patrón
+     * @return listaCurvas - Lista de curvas que cumplen el patrón
      */
     @Override
-    public void selecionarPorPatron() {
+    public List<Curvas> selecionarPorPatron() {
 
         long antes = Utilidades.conseguirHora();
 
@@ -167,6 +167,7 @@ public class CurvasServiceImpl implements CurvasService {
                 "selecionarPorPatron: " + tiempoSacado / 1000 + " Segundos"
         );
 
+        return listaCurvas;
     }
 
     /**

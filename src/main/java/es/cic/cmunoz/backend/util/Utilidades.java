@@ -19,13 +19,6 @@ public class Utilidades {
     private static final Logger LOG = Logger.getLogger(Utilidades.class.getName());
 
     /**
-     * Constructor genérico de la clase
-     */
-    public Utilidades() {
-        super();
-    }
-
-    /**
      * Método usado para la generación de Cups
      *
      * @param numeroCups Número usado para la generación del cups (Corresponde

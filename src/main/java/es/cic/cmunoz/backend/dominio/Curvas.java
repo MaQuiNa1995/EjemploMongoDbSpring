@@ -33,7 +33,6 @@ public class Curvas {
 
     public Curvas(int idCurva, String cups,
             int magnitud, String fecha, int[] valores, int[] flag) {
-
         this.idCurva = idCurva;
         this.cups = cups;
         this.magnitud = magnitud;

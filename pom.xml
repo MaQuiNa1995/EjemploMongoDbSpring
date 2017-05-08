@@ -5,7 +5,7 @@
 
     <groupId>es.cic.cmunoz</groupId>
     <artifactId>MongoDbMascota</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.8-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>MongoDbMascota</name>
@@ -29,7 +29,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

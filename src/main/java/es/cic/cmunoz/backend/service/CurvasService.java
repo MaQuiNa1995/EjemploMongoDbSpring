@@ -22,7 +22,7 @@ public interface CurvasService {
     /**
      * Método usado para la seleccion de curvas por patrón
      */
-    void selecionarPorPatron();
+    List<Curvas> selecionarPorPatron();
 
     /**
      * Método usado para la actualización de curvas que tengan un Id Curva menor
@@ -40,7 +40,7 @@ public interface CurvasService {
     /**
      * Método usado para el select de curvas seleccionandolas por fechas
      */
-    void verCincoFechas();
+    List<Curvas> verCincoFechas();
 
     /**
      * Método usado para el select de 6 curvas seleccionandolas por Id Curva
