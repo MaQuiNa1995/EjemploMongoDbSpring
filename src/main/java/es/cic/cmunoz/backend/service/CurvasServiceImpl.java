@@ -43,8 +43,8 @@ public class CurvasServiceImpl implements CurvasService {
         for (String cadenaSacada : arregloFechas) {
             try {
                 arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
-            } catch (NullPointerException e) {
-                System.out.println("Esa Fecha NoExiste");
+            } catch (NullPointerException npe) {
+                System.out.println("Esa Fecha No Existe");
             }
         }
         
@@ -53,7 +53,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "verCincoFechas: " + tiempoSacado / 1000 + " Segundos"
+                "verCincoFechas: " + tiempoSacado / 1000f + " Segundos"
         );
         
         return arregloFechasMismoDia;
@@ -80,7 +80,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "verSeisIdCurvas: " + tiempoSacado / 1000 + " Segundos"
+                "verSeisIdCurvas: " + tiempoSacado / 1000f + " Segundos"
         );
     }
 
@@ -105,7 +105,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "verCincoCups: " + tiempoSacado / 1000 + " Segundos"
+                "verCincoCups: " + tiempoSacado / 1000f + " Segundos"
         );
     }
 
@@ -143,7 +143,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "guardarMillon: " + tiempoSacado / 1000 + " Segundos"
+                "guardarMillon: " + tiempoSacado / 1000f + " Segundos"
         );
     }
 
@@ -164,7 +164,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "selecionarPorPatron: " + tiempoSacado / 1000 + " Segundos"
+                "selecionarPorPatron: " + tiempoSacado / 1000f + " Segundos"
         );
 
         return listaCurvas;
@@ -186,7 +186,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "recuperarUpdate: " + tiempoSacado / 1000 + " Segundos"
+                "recuperarUpdate: " + tiempoSacado / 1000f + " Segundos"
         );
 
     }
@@ -206,7 +206,7 @@ public class CurvasServiceImpl implements CurvasService {
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
-        utilidad.registrarActividad("updateMenoresDeCienMil: " + tiempoSacado / 1000 + " Segundos");
+        utilidad.registrarActividad("updateMenoresDeCienMil: " + tiempoSacado / 1000f + " Segundos");
     }
 
     /**
@@ -224,7 +224,7 @@ public class CurvasServiceImpl implements CurvasService {
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
 
         utilidad.registrarActividad(
-                "updateUnaCurva: " + tiempoSacado / 1000 + " Segundos"
+                "updateUnaCurva: " + tiempoSacado / 1000f + " Segundos"
         );
     }
 
