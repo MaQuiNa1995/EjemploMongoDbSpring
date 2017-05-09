@@ -1,6 +1,7 @@
 package es.cic.cmunoz;
 
 import es.cic.cmunoz.backend.service.CurvasService;
+import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,14 +34,14 @@ public class MongoDbMascotaApplication implements CommandLineRunner {
     public void run(String... args) {
 
 //        for (int i = 0; i < 38; i++) {
-//            curvasService.guardarMillon();
+        curvasService.guardarMillon();
 //        }
-//        curvasService.verCincoCups();
+        curvasService.verCincoCups();
         curvasService.verCincoFechas();
-//        curvasService.verSeisIdCurvas();
-//        curvasService.selecionarPorPatron(); 
-//        curvasService.updateMenoresDeCienMil();
-//        curvasService.updateUnaCurva();
+        curvasService.verSeisIdCurvas();
+//        curvasService.selecionarPorPatron();
+        curvasService.updateMenoresDeCienMil();
+        curvasService.updateUnaCurva();
     }
 
 }

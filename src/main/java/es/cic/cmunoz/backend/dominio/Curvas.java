@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 //@Pattern(regexp=".+@.+\\.[a-z]+")
 
-@Document(collection = "JuanchoCurvas")
+@Document(collection = "CurvasConArrays")
 public class Curvas {
 
     @Id

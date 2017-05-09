@@ -38,8 +38,8 @@ public class CurvasServiceImpl implements CurvasService {
 
         long antes = Utilidades.conseguirHora();
 
-        List<Curvas> arregloFechasMismoDia=null;
-        
+        List<Curvas> arregloFechasMismoDia = null;
+
         for (String cadenaSacada : arregloFechas) {
             try {
                 arregloFechasMismoDia = repository.encontrarFechas(cadenaSacada);
@@ -47,7 +47,7 @@ public class CurvasServiceImpl implements CurvasService {
                 System.out.println("Esa Fecha No Existe");
             }
         }
-        
+
         long despues = Utilidades.conseguirHora();
 
         long tiempoSacado = utilidad.calcularTiempo(antes, despues);
@@ -55,7 +55,7 @@ public class CurvasServiceImpl implements CurvasService {
         utilidad.registrarActividad(
                 "verCincoFechas: " + tiempoSacado / 1000f + " Segundos"
         );
-        
+
         return arregloFechasMismoDia;
     }
 
@@ -149,6 +149,7 @@ public class CurvasServiceImpl implements CurvasService {
 
     /**
      * Método usado para la seleccion de curvas por patrón
+     *
      * @return listaCurvas - Lista de curvas que cumplen el patrón
      */
     @Override
@@ -225,6 +226,10 @@ public class CurvasServiceImpl implements CurvasService {
 
         utilidad.registrarActividad(
                 "updateUnaCurva: " + tiempoSacado / 1000f + " Segundos"
+        );
+
+        utilidad.registrarActividad(
+                "Proceso Completado +\n"
         );
     }
 
